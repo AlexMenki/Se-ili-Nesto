@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="mk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Се или нешто</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="stage-bg" aria-hidden="true"></div>
+    <main class="game-shell">
+      <header class="top-bar">
+        <h1>СЕ ИЛИ НЕШТО</h1>
+        <div class="round-info">
+          <p id="roundText">Рунда 1</p>
+          <p id="toOpenText">Отвори уште: 5</p>
+        </div>
+        <p id="statusText" class="status">Избери ја твојата кутија.</p>
+        <div class="top-actions">
+          <button id="statsBtn" class="ghost-btn" type="button">СТАТИСТИКА</button>
+          <button id="newGameBtn" class="ghost-btn" type="button">Нова игра</button>
+        </div>
+      </header>
+
+      <section class="board-layout" aria-label="Табла за игра">
+        <aside class="prize-column low" aria-label="Ниски износи">
+          <h2>НИСКИ</h2>
+          <ul id="lowList"></ul>
+        </aside>
+
+        <section class="center-area">
+          <div id="boxesGrid" class="boxes-grid" aria-label="Кутии 1 до 22"></div>
+          <div id="myBoxIndicator" class="my-box">🔒 МОЈА КУТИЈА: —</div>
+          <div id="playerBoxSlot" class="player-box-slot" aria-live="polite"></div>
+        </section>
+
+        <aside class="prize-column high" aria-label="Високи износи">
+          <h2>ВИСОКИ</h2>
+          <ul id="highList"></ul>
+        </aside>
+      </section>
+    </main>
+
+    <div id="offerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="offerTitle" aria-describedby="offerBody">
+      <div class="modal-card">
+        <h3 id="offerTitle">ПОНУДА ОД БАНКАРОТ</h3>
+        <p id="offerBody">Банкарот нуди: 0 ден.</p>
+        <div class="modal-actions">
+          <button id="acceptBtn" class="action-btn accept" type="button">ПРИФАТИ</button>
+          <button id="declineBtn" class="action-btn decline" type="button">ОДБИЈ</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="endModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="endTitle">
+      <div class="modal-card">
+        <h3 id="endTitle">КРАЈ НА ИГРАТА</h3>
+        <div id="endBody" class="end-body"></div>
+        <button id="playAgainBtn" class="action-btn" type="button">Играј повторно</button>
+      </div>
+    </div>
+
+
+    <div id="statsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
+      <div class="modal-card stats-card">
+        <h3 id="statsTitle">СТАТИСТИКА</h3>
+        <div id="statsBody" class="stats-body"></div>
+        <div class="modal-actions">
+          <button id="resetStatsBtn" class="action-btn decline" type="button">Reset stats</button>
+          <button id="closeStatsBtn" class="action-btn" type="button">Затвори</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
